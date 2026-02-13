@@ -68,3 +68,9 @@ Typical range: 4000–8000.
 YouTube: (paste your link)
 
 ## Project Structure
+
+code/ — Arduino source code  
+photos/ — prototype images  
+circuit/ — wiring diagram  
+docs/ — project documentation  
+video/ — demo link
