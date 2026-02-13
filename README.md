@@ -1,7 +1,8 @@
-# Earthquake Detector System (Prototype) — Arduino
+# Earthquake Detector System — Arduino + MPU6050
 
 ## Overview
-A low-cost vibration alert prototype built with Arduino. The system detects abnormal vibration/sound activity and triggers an alert using OLED + LED + buzzer.
+Earthquake Detector System is a low‑cost hardware prototype that detects abnormal vibration using an MPU6050 accelerometer and Arduino.  
+When strong vibration is detected, the system triggers an alert with LED and buzzer.
 
 ## Category
 Infomatrix — Hardware Control
@@ -10,62 +11,60 @@ Infomatrix — Hardware Control
 - Bakhtybai Abdurakhman (Grade 9)
 - Turarbek Beknur (Grade 9)
 - Shakizinda Abdurahim (Grade 9)
+
 Supervisor: Aslan  
 School: IT-Lyceum Internat, Taraz
 
-## Problem & Goal
-Earthquakes can occur suddenly. Many small institutions need affordable local warning prototypes.
-Goal: build and test a compact alert device with adjustable sensitivity.
+## Goal
+To design and test a compact vibration detection and early alert prototype using a microcontroller and motion sensor.
 
-## How it works
-1) Reads sensor values continuously  
-2) Compares to a tuned threshold (and/or digital trigger)  
-3) If vibration/noise exceeds the limit → ALERT  
-4) OLED shows status, LED lights, buzzer sounds
-
-## Components
+## Hardware Components
 - Arduino UNO
-- Sound/Vibration sensor module (AO/DO)
-- OLED 0.96" I2C (SSD1306)
+- MPU6050 (GY-521)
 - LED + 220Ω resistor
 - Buzzer
-- Breadboard + jumper wires
+- Breadboard
+- Jumper wires
 
 ## Wiring
-### OLED (I2C)
+
+### MPU6050 → Arduino UNO
 - VCC → 5V
 - GND → GND
 - SDA → A4
 - SCL → A5
 
-### Sensor module
-- VCC → 5V
-- GND → GND
-- DO  → D2
-- AO  → A0
-
 ### LED
-- D7 → 220Ω → LED(+) ; LED(-) → GND
+- D7 → 220Ω → LED(+)
+- LED(-) → GND
 
 ### Buzzer
-- (+) → D8 ; (-) → GND
+- (+) → D8
+- (−) → GND
 
-## How to run
-1) Open `code/earthquake_detector.ino` in Arduino IDE  
-2) Install libraries: Adafruit SSD1306 + Adafruit GFX  
-3) Select Board: Arduino UNO, select Port (COM)  
-4) Upload  
-5) Open Serial Monitor (9600) and test by tapping the table  
-6) Tune threshold in code if needed
+## Detection Algorithm
+1. Sensor is initialized and calibrated at startup  
+2. Baseline vibration level is measured  
+3. Acceleration magnitude is read continuously  
+4. Difference from baseline is calculated  
+5. If vibration exceeds threshold → ALERT  
+6. LED and buzzer are activated
+
+## How to Run
+1. Open Arduino IDE  
+2. Open `earthquake_detector.ino`  
+3. Select Board: Arduino UNO  
+4. Select Port (COM)  
+5. Upload code  
+6. Open Serial Monitor (9600)  
+7. Keep device still during calibration  
+8. Tap or shake to test detection
+
+## Threshold Tuning
+If false alarms occur — increase threshold value in code.  
+Typical range: 4000–8000.
 
 ## Demo Video
-YouTube: (paste link here)
+YouTube: (paste your link)
 
-## Photos & Circuit
-- Photos: `photos/`
-- Wiring diagram: `circuit/wiring.png`
-
-## Future Improvements
-- Add MPU6050 accelerometer for more accurate vibration analysis
-- Data logging and wireless notifications
-- Better filtering to reduce false triggers
+## Project Structure
