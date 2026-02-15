@@ -12,7 +12,7 @@ Infomatrix — Hardware Control
 - Turarbek Beknur (Grade 9)
 - Shakizinda Abdurahim (Grade 9)
 
-Supervisor: Aslan  
+Supervisor: Shaizhan Aslan  
 School: IT-Lyceum Internat, Taraz
 
 ## Goal
