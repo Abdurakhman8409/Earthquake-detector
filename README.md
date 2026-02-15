@@ -65,7 +65,7 @@ If false alarms occur — increase threshold value in code.
 Typical range: 4000–8000.
 
 ## Demo Video
-YouTube: (paste your link)
+YouTube: https://www.youtube.com/watch?v=2EgKxHBRqJ0
 
 ## Project Structure
 
